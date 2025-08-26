@@ -1,0 +1,10 @@
+ffmpeg
+torch
+torchaudio
+numpy
+scipy
+mido
+librosa
+essentia
+madmom
+tqdm

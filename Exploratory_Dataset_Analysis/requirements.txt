@@ -1,0 +1,4 @@
+git+https://github.com/palonso/MAEST.git
+torch==2.2.2
+torchaudio
+matplotlib
