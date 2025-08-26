@@ -34,7 +34,7 @@ conda activate rave_preprocess_env
 
 ## Preprocessing
 
-1. Download the dataset from the web: [Freesound Loop Dataset](https://zenodo.org/records/3967852)  **or** run the retrieval script, and unzip `FSL10K.zip`:
+1. Download the dataset from the [Freesound Loop Dataset](https://zenodo.org/records/3967852) and unzip `FSL10K.zip` **or** run the retrieval script:
 
     ````
     python retrieve_dataset.py
