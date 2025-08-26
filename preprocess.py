@@ -1,3 +1,31 @@
+"""
+preprocess.py
+
+Preprocesses audio files for neural audio loop generation, preparing them for
+training and analysis.
+
+Features:
+-  Loads audio files, converting stereo to mono if needed.
+-  Resamples audio to a consistent target sample rate.
+-  Detects beats and downbeats, ensuring temporal alignment and rhythmic consistency.
+-  Normalizes tempo to a target BPM using FFmpeg-based methods.
+-  Generates processed audio outputs suitable for training neural models.
+
+Global Parameters:
+- TARGET_SAMPLE_RATE: Target sampling rate for all audio.
+- TARGET_DURATION: Target duration (seconds) for audio clips.
+- TARGET_BPM: Target tempo in BPM for audio normalization.
+
+Dependencies:
+- Python 3.10+
+- torch, torchaudio, librosa, essentia
+- numpy, scipy, tqdm, argparse, shutil
+- FFmpeg installed and accessible from the command line
+
+Usage:
+- Run as a standalone script with appropriate arguments for input and output directories.
+- Outputs processed audio files and metadata ready for downstream tasks.
+"""
 import torch
 import torchaudio
 import re

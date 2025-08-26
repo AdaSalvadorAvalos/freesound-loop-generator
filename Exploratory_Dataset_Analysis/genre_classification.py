@@ -1,3 +1,45 @@
+"""
+genre_classification.py
+
+This script organizes WAV audio files into parent genre folders based on style 
+probabilities predicted by the MAEST model. It also provides additional analysis 
+on genre distributions and can optionally remove intermediate probability files (.pt).
+
+Features:
+- Loads pre-computed style probabilities for each audio file.
+- Defines parent genres and classifies files based on the highest mean probability 
+  among the associated styles.
+- Creates a structured folder hierarchy for organized access to audio files:
+  one folder per parent genre plus an "Other" folder for unclassified files.
+- Copies both WAV and .pt files to the corresponding genre folder.
+- Cleans up empty folders after classification.
+- Provides analysis of available genres and sub-style counts.
+- Optionally removes all .pt files while keeping only the WAV files.
+
+Directories and Files:
+- Input: "../wav_files_5h/all_labels_master.json" (list of all style names)
+- Input: "../wav_files_5h/style_probs" (predicted style probability tensors)
+- Input: "../wav_files_5h/*.wav" (original or processed audio files)
+- Output: "../wav_files_5h/classified_by_genre" (organized folders by parent genre)
+
+Dependencies:
+- Python 3.10+
+- torch
+- numpy
+- json
+- glob
+- os
+- shutil
+- tqdm
+
+Usage:
+1. Run the script sequentially.
+2. The script will first display available genres and their style counts.
+3. It will then classify WAV files into parent genre folders.
+4. At the end, the user can choose to remove all .pt files, leaving only WAV files.
+"""
+
+
 import torch
 import json
 import glob

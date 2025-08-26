@@ -1,3 +1,41 @@
+"""
+calculate_style_distribution.py
+
+This script processes a collection of WAV audio files, predicts their genre/style 
+labels using the MAEST model, and saves the resulting probabilities and top labels 
+for downstream analysis or model training.
+
+Features:
+- Cleans and standardizes filenames for consistent storage.
+- Loads audio files, resamples to 44.1 kHz, converts to mono if necessary.
+- Computes log-mel spectrograms and resizes them to match MAEST model input requirements.
+- Uses a pre-trained MAEST model ("discogs-maest-5s-pw-129e") to predict style labels.
+- Collects all unique genre labels from a sample of files for consistent one-hot encoding.
+- Saves full probability tensors and top-N labels for each processed file.
+
+Directories:
+- 'processed_dir': Input directory containing WAV files.
+- 'output_dir': Output directory where processed files, labels, and probabilities are saved.
+- 'probs_dir': Subdirectory of 'output_dir' storing full probability tensors (.pt files).
+- 'labels_dir': Subdirectory of 'output_dir' storing top labels and probabilities as JSON.
+
+Dependencies:
+- Python 3.10+
+- torch
+- torchaudio
+- numpy
+- maest
+- tqdm
+- re
+- json
+- os
+
+Usage:
+1. Set 'processed_dir' and 'output_dir' to the desired directories.
+2. Run the script sequentially.
+3. Access top-N predicted labels and probabilities from 'labels_dir'.
+4. Access full probability distributions from 'probs_dir'.
+"""
 import torch
 import torchaudio
 import torchaudio.transforms as T
