@@ -56,4 +56,8 @@ To train the model, follow the official IRCAM [Tutorial: Training RAVE models on
 
 ## Inference
 
-The inference was developed in MSP/MAX 8. install the nn~ external for usage.
+The inference pipeline was developed in **MSP/MAX 8**.  
+To use it, make sure to install the `nn~` external and load the desired model checkpoint.  
+If you want, you can use the provided checkpoint at:
+
+`model_checkpoint/adaloops_streaming.ts`
