@@ -43,7 +43,7 @@ conda activate rave_preprocess_env
 2. Run the preprocessing script:
 
     ````
-    python preprocess/preprocess.py --input_dir FSL10K/audio/wav --output_dir output_preprocess_rave --metadata FSL10K/metadata.json --filter_by_bpm --min_bpm 110 --max_bpm 130 --shuffle
+    python preprocessing/preprocess.py --input_dir FSL10K/audio/wav --output_dir output_preprocess_rave --metadata FSL10K/metadata.json --filter_by_bpm --min_bpm 110 --max_bpm 130 --shuffle
     ````
     This generates a subset of audio files with uniform tempo and proper formating for model training. 
 
@@ -57,7 +57,9 @@ To train the model, follow the official IRCAM [Tutorial: Training RAVE models on
 ## Inference
 
 The inference pipeline was developed in **MSP/MAX 8**.  
-To use it, make sure to install the `nn~` external and load the desired model checkpoint.  
-If you want, you can use the provided checkpoint at:
+To run it, ensure that the [`nn~`](https://forum.ircam.fr/projects/detail/nn/) external is installed. This project was developed with release [1.5.3](https://github.com/acids-ircam/nn_tilde/releases/tag/v1.5.3).
 
+After installation, load your desired model checkpoint.
+
+For convenience, a pre-trained checkpoint is included at:
 `model_checkpoint/adaloops_streaming.ts`
