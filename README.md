@@ -28,8 +28,8 @@ pip install -r requirements.txt
 
 Or, if using conda:
 ```
-conda env update --file rave_preprocess_env.yml --prune
-conda activate rave_preprocess_env
+conda env create -f preprocessing_env.yml
+conda activate preprocessing_env
 ```
 
 ## Preprocessing

@@ -514,7 +514,7 @@ def process_wav_with_beat_alignment(file_path, processed_save_path, metadata=Non
 
 
 def process_dataset_with_beat_alignment(input_dir, output_dir, file_list=None, num_files=None, 
-                                       metadata=None, preserve_bpm=False, shuffle=False, num_mixes=None,
+                                       metadata=None, preserve_bpm=False, shuffle=False,
                                        align_beats=True, target_beats=32, confidence_threshold=0.3):
     """
     Modified version of your process_dataset function to use beat alignment
@@ -931,7 +931,6 @@ if __name__ == "__main__":
     parser.add_argument("--filter_by_bpm", action="store_true", help="Filter files by BPM range")
     parser.add_argument("--shuffle", action="store_true", help="Randomly shuffle files before processing")
     parser.add_argument("--seed", type=int, default=42, help="Random seed for shuffling")
-    parser.add_argument("--num_mixes", type=int, default=None, help="Number of mixed combinations to create (None for all)")
     parser.add_argument("--align_beats", action="store_true", help="Align audio to start with downbeats")
     parser.add_argument("--target_beats", type=int, default=32, help="Number of beats in output audio")
     parser.add_argument("--confidence_threshold", type=float, default=0.3, help="Minimum confidence for beat alignment")
@@ -947,7 +946,6 @@ if __name__ == "__main__":
     print(f"BPM preservation is {'enabled' if args.preserve_bpm else 'disabled'}")
     print(f"BPM filtering is {'enabled' if args.filter_by_bpm else 'disabled'}")
     print(f"Random shuffling is {'enabled' if args.shuffle else 'disabled'}")
-    print(f"Creating {'all possible' if args.num_mixes is None else args.num_mixes} mixed combinations")
     
     # Load metadata
     print(f"Loading metadata from {args.metadata}...")
