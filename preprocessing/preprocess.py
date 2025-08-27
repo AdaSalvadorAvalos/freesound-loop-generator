@@ -80,7 +80,7 @@ def detect_beats_and_downbeats(audio_path, target_sample_rate=TARGET_SAMPLE_RATE
         # Calculate confidence based on beat regularity
         confidence = calculate_beat_confidence(beat_times)
         
-        # Fix: Extract scalar value from tempo array to avoid deprecation warning
+        # Extract scalar value from tempo array to avoid deprecation warning
         tempo_scalar = float(tempo.item()) if hasattr(tempo, 'item') else float(tempo)
         
         return beat_times, downbeat_indices, tempo_scalar, confidence
@@ -255,7 +255,6 @@ def align_to_downbeat_and_normalize_beats(audio_path, output_path, target_beats=
                                         target_sample_rate=TARGET_SAMPLE_RATE, confidence_threshold=0.3):
     """
     Align audio to start with a downbeat and normalize to have a specific number of beats.
-    FIXED: Always use TARGET_BPM for duration calculation to ensure consistency.
     """
     try:
         # Load original audio
@@ -350,7 +349,7 @@ def align_to_downbeat_and_normalize_beats(audio_path, output_path, target_beats=
             
             beat_info['aligned'] = True
         
-        # GUARANTEE exact length
+        # EXACT length
         processed_wav = ensure_exact_length(processed_wav, target_samples)
         
         # Save the processed audio
@@ -514,12 +513,11 @@ def process_wav_with_beat_alignment(file_path, processed_save_path, metadata=Non
             return None, None, None, 'failed'
 
 
-# Modified version of your process_dataset function to use beat alignment
 def process_dataset_with_beat_alignment(input_dir, output_dir, file_list=None, num_files=None, 
                                        metadata=None, preserve_bpm=False, shuffle=False, num_mixes=None,
                                        align_beats=True, target_beats=32, confidence_threshold=0.3):
     """
-    Enhanced version of process_dataset that includes beat alignment functionality.
+    Modified version of your process_dataset function to use beat alignment
     """
     
     # Create necessary directories
@@ -877,10 +875,7 @@ def get_file_bpm(file_path, metadata=None):
     
     # If not in metadata, try to detect it
     try:
-        # wav, sr = torchaudio.load(file_path)
-        # audio_np = wav[0].numpy() if wav.shape[0] > 1 else wav[0].numpy()
         tempo = detect_bpm(file_path)
-        # tempo, _ = librosa.beat.beat_track(y=audio_np, sr=sr)
         
         if isinstance(tempo, np.ndarray) and tempo.size > 0:
             return float(tempo.item())
@@ -922,7 +917,6 @@ def filter_files_by_bpm(input_dir, metadata=None, min_bpm=120, max_bpm=130, max_
 
 
 if __name__ == "__main__":
-    # At the beginning
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
 

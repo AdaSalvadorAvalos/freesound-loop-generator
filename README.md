@@ -43,7 +43,7 @@ conda activate rave_preprocess_env
 2. Run the preprocessing script:
 
     ````
-    python preprocess.py --input_dir FSL10K/audio/wav --output_dir output_preprocess_rave --metadata FSL10K/metadata.json --filter_by_bpm --min_bpm 110 --max_bpm 130 --shuffle
+    python preprocess/preprocess.py --input_dir FSL10K/audio/wav --output_dir output_preprocess_rave --metadata FSL10K/metadata.json --filter_by_bpm --min_bpm 110 --max_bpm 130 --shuffle
     ````
     This generates a subset of audio files with uniform tempo and proper formating for model training. 
 
