@@ -37,9 +37,9 @@ conda activate flg_env
 ### Download Dataset 
 To download the dataset from the [Freesound Loop Dataset](https://zenodo.org/records/3967852) and unzip `FSL10K.zip`, **or** run the retrieval script:
 
-    ````
-    python retrieve_dataset.py
-    ````
+````
+python retrieve_dataset.py
+````
 
 ### Preprocessing
 1. To preprocess de audio files from a dataset:
