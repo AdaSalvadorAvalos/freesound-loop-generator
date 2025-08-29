@@ -7,8 +7,8 @@ training and analysis.
 Features:
 -  Loads audio files, converting stereo to mono if needed.
 -  Resamples audio to a consistent target sample rate.
--  Detects beats and downbeats, ensuring temporal alignment and rhythmic consistency.
 -  Normalizes tempo to a target BPM using FFmpeg-based methods.
+-  Detects beats and downbeats, ensuring temporal alignment and rhythmic consistency.
 -  Generates processed audio outputs suitable for training neural models.
 
 Global Parameters:
@@ -922,7 +922,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Process audio files with Mel spectrograms and one-hot encoded labels")
     parser.add_argument("--input_dir", type=str, required=True, help="Directory containing WAV files")
-    parser.add_argument("--output_dir", type=str, default="MEL_SPEC_output", help="Output directory for processed files")
+    parser.add_argument("--output_dir", type=str, default="output_dir", help="Output directory for processed files")
     parser.add_argument("--metadata", type=str, required=True, help="Path to metadata.json file")
     parser.add_argument("--num_files", type=int, default=None, help="Number of files to process (None for all)")
     parser.add_argument("--preserve_bpm", action="store_true", help="Preserve original BPM instead of normalizing to reference BPM")
